@@ -1,0 +1,14 @@
+[project]
+name = "phaistos-disc"
+version = "0.1.0"
+description = "Python library to aid in the decipherment of the Phaistos Disc"
+readme = "README.md"
+authors = [{ name = "bob", email = "robertwalks@gmail.com" }]
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
