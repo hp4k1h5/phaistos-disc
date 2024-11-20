@@ -36,15 +36,5 @@ def print_disc(disc):
 
 
 if __name__ == "__main__":
-    ...
     # print_disc("outside_in")
     print_disc("inside_out")
-    # disc = read_disc(disc_to_path["inside_out"])
-    # sides = "side_a", "side_b"
-    # for side in sides:
-    #     for i, word in enumerate(disc[side]):
-    #         if "46" in word:
-    #             word[0:2] = list(reversed(word[0:2]))
-    #
-    # with open(disc_to_path["inside_out"], "w") as f:
-    #     f.write(json.dumps(disc))
