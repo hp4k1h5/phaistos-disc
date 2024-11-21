@@ -56,23 +56,45 @@ A5 á-tu-hi-ya-wa8
 …
 ```
 
+### Decipherment
+
+The primary focus of this library is to provide a suite of tools that aid in the decipherment of the disc. There may be many approaches considered during the development of this library. The general method pursued initially will be to:
+
+- create combinations of symbol-to-phoneme mappings
+- generate a transcription
+- compare the transcription with known ancient Mediterranean languages
+
+If a particular symbol-phoneme mapping produces a set of words that can be found in another language, it may be indicative of that mapping's overall correctness, though decipherment will depend on that set of words making some sense. Achterberg (2021) and others have done similar work without the use of computational means, relying on the disc's symbol's pictographic resemblance to other known hieroglyphic symbols. But consensus has not been reached as to the correctness of any particular transcription or translation.
+
+#### Challenges
+
+##### Disc Side Ordering
+
+The disc is inscribed on both sides. There is no consensus on which side is to be read first, or if both sides may be read independently without relation one to the other.
+
+##### Writing/Reading Direction
+
+The disc does not provide obvious signs indicating whether to read from the periphery toward the center (right-to-left) or from the center outward toward the periphery (left-to-right).
+
+##### Sign Values
+
+It is not known whether each symbol represents a letter (alphabetically), a syllable (syllabically), a word (hieroglyphically), or a combination of these as seen in Linear B and elsewhere.
+
 ### Install
 
-1. Download the library, either by pip installing it, or cloning this repo
+1. Download the library, either by pip installing it
 
-1.a) pip install phaistos-disc
+- `pip install phaistos-disc`, or
+  - `pip install phaistos-disc[biblio]` to include reference works
 
-Or for contributors, fork or clone the repo
-
-1.b) git clone https://github.com/hp4k1h5/phaistos-disc.git
-
-phaistos-disc uses [`uv`](https://docs.astral.sh/uv/) to structure and manage the project.
+2. or cloning this repo. phaistos-disc uses [`uv`](https://docs.astral.sh/uv/) to structure and manage the project.
 
 - [Install `uv`](https://docs.astral.sh/uv/getting-started/installation/)
+- `git clone https://github.com/hp4k1h5/phaistos-disc.git`
 - `cd` into the project with e.g. `cd path/to/phaistos-disc`
 - Create a virtual environment: `uv venv`
 - Create a venv shell: `source .venv/bin/active`
-- Install dependencies: `uv install`
+- Install dependencies: `uv sync`
 
 ## Contributions
 
