@@ -16,9 +16,10 @@ Some research materials are included in [/biblio/](./biblio)
 
 ```python
 # Print the disc with line+word numbering
-from phaistos_disc.util import format_disc
+from phaistos_disc import format_disc
 
-print(format_disc("inside_out"))
+pd = PhaistosDisc()
+print(pd.format_disc())
 
 A1 𐇵 𐇒 𐇙
 A2 𐇐 𐇜
@@ -26,8 +27,8 @@ A3 𐇤 𐇴 𐇲 𐇪 𐇪 𐇛 𐇑
 …
 
 # Print the disc with line separators
-print(format_disc(
-   "inside_out", letter_separator="-", word_separator="|", prefix=False,
+print(pd.format_disc(
+    letter_separator="-", word_separator="|", prefix=False,
 ))
 𐇵-𐇒-𐇙|𐇐-𐇜|𐇤-𐇴-𐇲-𐇪-𐇪-𐇛-𐇑|𐇵-𐇒-𐇙|…
 ```
@@ -37,16 +38,22 @@ print(format_disc(
 As an example of the potential utility of the tool, I've included Achterberg's transcriptional mapping[^3] of phonetic values to their hieroglyphic forms in [](./src/data/phaistos-disc_signs-achterberg.csv), which can be used as shown below:
 
 ```python
-# based on Achterberg 2021, _The Phaistos Disc: A Luwian Letter to Nestor_
-achterberg_transcription = format_disc(
-   "outside_in",
-   sign_map=get_sign_map(data_fp / "phaistos-disc_signs-achterberg.csv"),
+# Following Achterberg 2021, _The Phaistos Disc: A Luwian Letter to Nestor_
+from phaistos_disc import PhaistosDisc
+
+pd = PhaistosDisc(
+   side_ordering=SideOrdering.a_b,
+   direction=Direction.io,
+)
+achterberg_transliteration = pd.format_disc(
+   sign_map=pd.get_sign_map(data_fp / "phaistos-disc_signs-achterberg.csv"),
    output_type=OutputType.phoneme,
    letter_separator="-",
    word_separator="\n",
    prefix=True,
 )
-print(achterberg_transcription)
+
+print(achterberg_translisteration)
 
 A1 á-tu-mi1-SARU-s6-ti
 A2 pa-ya-tu
@@ -58,15 +65,15 @@ A5 á-tu-hi-ya-wa8
 
 ### Decipherment
 
-The primary focus of this library is to provide a suite of tools that aid in the decipherment of the disc. There may be many approaches considered during the development of this library. The general method pursued initially will be to:
+The primary focus of this library is to provide a suite of tools that aid in the decipherment of the disc. The general method pursued initially will be to:
 
 - create combinations of symbol-to-phoneme mappings
 - generate a transcription
 - compare the transcription with known ancient Mediterranean languages
 
-If a particular symbol-phoneme mapping produces a set of words that can be found in another language, it may be indicative of that mapping's overall correctness, though decipherment will depend on that set of words making some sense. Achterberg (2021) and others have done similar work without the use of computational means, relying on the disc's symbol's pictographic resemblance to other known hieroglyphic symbols. But consensus has not been reached as to the correctness of any particular transcription or translation.
+If a particular symbol-phoneme mapping produces a set of words that can be found in another language. Achterberg (2021) and others have done similar work without the use of computational means, relying on the disc's symbols' pictographic resemblance to other known hieroglyphic symbols. But consensus has not been reached as to the correctness of any particular transcription or translation.
 
-#### Challenges
+### Challenges
 
 ##### Disc Side Ordering
 
