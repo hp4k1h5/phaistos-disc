@@ -1,6 +1,6 @@
 [project]
 name = "phaistos-disc"
-version = "0.0.0"
+version = "0.0.1"
 description = "Python library to aid in the decipherment of the Phaistos Disc"
 readme = "README.md"
 authors = [{ name = "bob", email = "robertwalks@gmail.com" }]
