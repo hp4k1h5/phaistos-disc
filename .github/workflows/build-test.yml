@@ -1,10 +1,10 @@
-name: build,lint,test
+name: lint,test
 on:
-  push: 
+  push:
     branches: "*"
     tags: ["v*"]
 jobs:
-  build:
+  lint_test:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -24,11 +24,10 @@ jobs:
         run: uv sync
 
       - name: ruff,ty
-        run: | 
+        run: |
           uv run ruff check
           uvx ty check --exit-zero
 
       - name: pytest
         run: |
           uv run pytest
-

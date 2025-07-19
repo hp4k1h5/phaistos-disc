@@ -1,7 +1,7 @@
 name: release
 on:
   workflow_run:
-    workflows: ["build,lint,test"]
+    workflows: ["lint,test"]
     types:
       - completed
   push:
@@ -14,5 +14,5 @@ jobs:
       UV_PUBLISH_TOKEN: ${{ secrets.UV_PUBLISH_TOKEN}}
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - uv build
-      - uv publish
+      - name: build,publish
+        run : uv build && uv publish
