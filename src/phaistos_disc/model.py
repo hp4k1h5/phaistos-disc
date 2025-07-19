@@ -12,7 +12,7 @@ Sides A and B are so named by convention, but one could read them in the
 reverse order. Additionally, researchers disagree as to whether the disc should
 be read from the center outwards (left-to-right) or from the disc's edge toward
 the center (right-to-left). This library provides facilities for reading in
-either direction and for ordering the sides in either manner. 
+either direction and for ordering the sides in either manner.
 """
 
 DiscData = NewType("DiscData", OrderedDict[str, list[list[str]]])
@@ -113,7 +113,9 @@ class PhaistosDisc:
     def number_to_symbol(
         self, sign_map: pl.DataFrame, number: str, output_type: OutputType
     ):
-        """Convert a zero-padded sign-number to unicode symbol.
+        """Convert a zero-padded sign-number to unicode symbol or phonetic
+        transcription.
+
         Phaistos symbols are numbered 01-47 according to standard interpretation.
         See ./src/data/phaistos-disc_signs.csv for complete listing.
         """

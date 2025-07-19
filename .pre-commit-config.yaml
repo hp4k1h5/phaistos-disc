@@ -25,5 +25,5 @@ repos:
     hooks:
       - id: ty
         name: ty check
-        entry: uvx ty check # uvx ty check --exit-zero
+        entry: uvx ty check --exit-zero
         language: python
