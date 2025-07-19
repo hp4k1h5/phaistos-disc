@@ -1,10 +1,11 @@
-name: release 
+name: release
 on:
   workflow_run:
     workflows: ["build,lint,test"]
-    tags: ["v*"]
-    types: 
+    types:
       - completed
+  push:
+    tags: ["v*"]
 
 jobs:
   on-success:
