@@ -6,15 +6,12 @@ readme = "README.md"
 authors = [{ name = "bob", email = "robertwalks@gmail.com" }]
 requires-python = ">=3.12"
 
-dependencies = [
-    "polars>=1.31.0",
-]
+dependencies = ["polars>=1.31.0"]
 
 classifiers = [
     "Development Status :: 1 - Planning",
     "Programming Language :: Python :: 3.12",
     "Topic :: Text Processing :: Linguistic",
-
 ]
 
 [project.urls]
@@ -28,9 +25,6 @@ dev = ["pre-commit>=4.2.0", "pytest>=8.4.1", "ruff>=0.12.4", "ty>=0.0.1a15"]
 [build-system]
 requires = ["uv_build>=0.8.0,<0.9.0"]
 build-backend = "uv_build"
-
-[tool.uv.build-backend]
-data = { data = "src/data" }
 
 [tool.ruff]
 line-length = 79

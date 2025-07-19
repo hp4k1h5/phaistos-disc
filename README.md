@@ -2,7 +2,7 @@
 
 > A library of Python utilities to aid in the decipherment of the Phaistos disc
 
-![Sides A and B of the Phaistos disc](./src/data/phaistos-disc.png)
+![Sides A and B of the Phaistos disc](./src/phaistos_disc/data/phaistos-disc.png)
 
 Since 1908[^1], the Phaistos disc has eluded decipherment, despite widespread interest and several recent computer-aided analyses[^2]. The utilities provided in this library aim to assist in the analysis and decipherment of the Phaistos disc by providing a suite of tools and databases, and by documenting progress made by means of computational or analytical advancements.
 
@@ -62,6 +62,8 @@ A4 u-u-ri
 A5 á-tu-hi-ya-wa8
 …
 ```
+
+By modifying an existing transliteration or adding a new csv file to the [](`/phaistos_disc/data/`) directory, you can easily print a phonetic transcription of the entire disc.
 
 ### Decipherment
 

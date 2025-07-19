@@ -17,7 +17,7 @@ either direction and for ordering the sides in either manner.
 
 DiscData = NewType("DiscData", OrderedDict[str, list[list[str]]])
 
-data_fp = pathlib.Path(__file__).parents[1] / "data"
+data_fp = pathlib.Path(__file__).parents[0] / "data"
 # side a -> side b outside in (right to left)
 ab_oi_fp = data_fp / "phaistos-disc_outside-in.json"
 
