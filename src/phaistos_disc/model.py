@@ -1,11 +1,3 @@
-import json
-import pathlib
-from collections import OrderedDict
-from enum import Enum
-from typing import NewType
-
-import polars as pl
-
 """
 The Phaistos disc is inscribed on both sides in a spiral, and can be read a number of ways:
 Sides A and B are so named by convention, but one could read them in the
@@ -15,51 +7,42 @@ the center (right-to-left). This library provides facilities for reading in
 either direction and for ordering the sides in either manner.
 """
 
-DiscData = NewType("DiscData", OrderedDict[str, list[list[str]]])
+from collections import OrderedDict
 
-data_fp = pathlib.Path(__file__).parents[0] / "data"
-# side a -> side b outside in (right to left)
-ab_oi_fp = data_fp / "phaistos-disc_outside-in.json"
+import polars as pl
 
-
-def read_disc(disc_path: pathlib.Path = ab_oi_fp) -> DiscData:
-    """Read a json formatted disc from file"""
-
-    with open(disc_path, "r") as f:
-        disc = json.loads(f.read())
-    return disc
+from phaistos_disc.util import (
+    DiscData,
+    StrEnum,
+    number_to_symbol,
+    read_disc,
+    read_sign_map,
+)
 
 
-def read_sign_map(
-    path: pathlib.Path = data_fp / "phaistos-disc_signs.csv",
-) -> pl.DataFrame:
-    sign_map: pl.DataFrame = pl.read_csv(path)
-    return sign_map
+class SideOrdering(StrEnum):
+    a_b = "a_b"
+    b_a = "b_a"
 
 
-class SideOrdering(Enum):
-    a_b = ("side_a", "side_b")
-    b_a = ("side_b", "side_a")
-
-
-class Direction(Enum):
+class Direction(StrEnum):
     ltr = "left-to-right"
     rtl = "right-to-left"
     inside_out = "left-to-right"
     outside_in = "right-to-left"
 
 
-class OutputType(Enum):
-    number = "No."
-    symbol = "Symbol"
-    unicode = "Unicode"
-    phoneme = "Phoneme"
+class OutputType(StrEnum):
+    number = "number"
+    symbol = "symbol"
+    unicode = "unicode"
+    phoneme = "phoneme"
 
 
 class PhaistosDisc:
     data: DiscData
-    side_ordering: SideOrdering
-    direction: Direction
+    side_ordering: SideOrdering | str
+    direction: Direction | str
 
     def __init__(
         self,
@@ -110,23 +93,6 @@ class PhaistosDisc:
 
         return self.data
 
-    def number_to_symbol(
-        self, sign_map: pl.DataFrame, number: str, output_type: OutputType
-    ):
-        """Convert a zero-padded sign-number to unicode symbol or phonetic
-        transcription.
-
-        Phaistos symbols are numbered 01-47 according to standard interpretation.
-        See ./src/data/phaistos-disc_signs.csv for complete listing.
-        """
-
-        sym = (
-            sign_map.filter(pl.col("No.") == number)
-            .select(output_type.value)
-            .item()
-        )
-        return sym
-
     def format_disc(
         self,
         sign_map: pl.DataFrame = read_sign_map(),
@@ -143,9 +109,36 @@ class PhaistosDisc:
             side_letter = side[-1].upper()
             for i, word in enumerate(self.data[side]):
                 symbols = [
-                    self.number_to_symbol(sign_map, sign, output_type)
+                    number_to_symbol(sign_map, sign, output_type)
                     for sign in word
                 ]
                 _prefix = f"{side_letter}{i + 1} " if prefix else ""
                 output.append(f"{_prefix}{letter_separator.join(symbols)}")
         return word_separator.join(output)
+
+    def get_stats(self):
+        """Provides lexical statistics for the disc"""
+
+        words = []
+        glyphs = []
+        for side, value in self.data.items():
+            for word in value:
+                _word = " ".join(word)
+                words.append(_word)
+                for glyph in word:
+                    glyphs.append(glyph)
+
+        glyphs_df = pl.DataFrame({"glyph": glyphs})
+        glyphs_df = (
+            glyphs_df.group_by("glyph")
+            .agg(pl.len().alias("count"))
+            .sort("count", descending=True)
+        )
+
+        words_df = pl.DataFrame({"word": words})
+        words_df = (
+            words_df.group_by("word")
+            .agg(pl.len().alias("count"))
+            .sort("count", descending=True)
+        )
+        return glyphs_df, words_df

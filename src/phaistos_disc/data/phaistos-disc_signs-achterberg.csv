@@ -1,48 +1,48 @@
-No.,Symbol,Name,Phoneme
-01,𐇐,PEDESTRIAN,SARU
-02,𐇑,PLUMED HEAD,á
-03,𐇒,TATTOOED HEAD,har
-04,𐇓,CAPTIVE,hi
-05,𐇔,CHILD,ti
-06,𐇕,WOMAN,mi
-07,𐇖,HELMET,sa2
-08,𐇗,GAUNTLET,kà
-09,𐇘,TIARA,har
-10,𐇙,ARROW,sa3
-11,𐇚,BOW,_sol suus_
-12,𐇛,SHIELD,tu
-13,𐇜,CLUB,mi1
-14,𐇝,MANACLES,tu5
-15,𐇞,MATTOCK,_custos_
-16,𐇟,SAW,li
-17,𐇠,LID,_anulus_
-18,𐇡,BOOMERANG,s6
-19,𐇢,CARPENTRY PLANE,sa1
-20,𐇣,DOLIUM,ya1
-21,𐇤,COMB,_jugum_
-22,𐇥,SLING,i
-23,𐇦,COLUMN,ti1
-24,𐇧,BEEHIVE,pa
-25,𐇨,SHIP,na
-26,𐇩,HORN,sú
-27,𐇪,HIDE,ku
-28,𐇫,BULLS LEG,lí
-29,𐇬,CAT,u
-30,𐇭,RAM,ma
-31,𐇮,EAGLE,ra
-32,𐇯,DOVE,zi
-33,𐇰,TUNNY,wa8
-34,𐇱,BEE,ri
-35,𐇲,PLANE TREE,ta
-36,𐇳,VINE,wi
-37,𐇴,PAPYRUS,du
-38,𐇵,ROSETTE,wa1
-39,𐇶,LILY,ha
-40,𐇷,OX BACK,ya
-41,𐇸,FLUTE,ti3
-42,𐇹,GRATER,ma1
-43,𐇺,STRAINER,asu
-44,𐇻,SMALL AXE,tí
-45,𐇼,WAVY BAND,ná
-46,'𐇽,COMBINING STROKE,ti
-??,?,UNKNOWN,"?"
+number,symbol,name,unicode,phoneme
+01,𐇐,PEDESTRIAN,0x101d0,SARU
+02,𐇑,PLUMED HEAD,0x101d1,á
+03,𐇒,TATTOOED HEAD,0x101d2,har
+04,𐇓,CAPTIVE,0x101d3,hi
+05,𐇔,CHILD,0x101d4,ti
+06,𐇕,WOMAN,0x101d5,mi
+07,𐇖,HELMET,0x101d6,sa2
+08,𐇗,GAUNTLET,0x101d7,kà
+09,𐇘,TIARA,0x101d8,har
+10,𐇙,ARROW,0x101d9,sa3
+11,𐇚,BOW,0x101da,_sol suus_
+12,𐇛,SHIELD,0x101db,tu
+13,𐇜,CLUB,0x101dc,mi1
+14,𐇝,MANACLES,0x101dd,tu5
+15,𐇞,MATTOCK,0x101de,_custos_
+16,𐇟,SAW,0x101df,li
+17,𐇠,LID,0x101e0,_anulus_
+18,𐇡,BOOMERANG,0x101e1,s6
+19,𐇢,CARPENTRY PLANE,0x101e2,sa1
+20,𐇣,DOLIUM,0x101e3,ya1
+21,𐇤,COMB,0x101e4,_jugum_
+22,𐇥,SLING,0x101e5,i
+23,𐇦,COLUMN,0x101e6,ti1
+24,𐇧,BEEHIVE,0x101e7,pa
+25,𐇨,SHIP,0x101e8,na
+26,𐇩,HORN,0x101e9,sú
+27,𐇪,HIDE,0x101ea,ku
+28,𐇫,BULLS LEG,0x101eb,lí
+29,𐇬,CAT,0x101ec,u
+30,𐇭,RAM,0x101ed,ma
+31,𐇮,EAGLE,0x101ee,ra
+32,𐇯,DOVE,0x101ef,zi
+33,𐇰,TUNNY,0x101f0,wa8
+34,𐇱,BEE,0x101f1,ri
+35,𐇲,PLANE TREE,0x101f2,ta
+36,𐇳,VINE,0x101f3,wi
+37,𐇴,PAPYRUS,0x101f4,du
+38,𐇵,ROSETTE,0x101f5,wa1
+39,𐇶,LILY,0x101f6,ha
+40,𐇷,OX BACK,0x101f7,ya
+41,𐇸,FLUTE,0x101f8,ti3
+42,𐇹,GRATER,0x101f9,ma1
+43,𐇺,STRAINER,0x101fa,asu
+44,𐇻,SMALL AXE,0x101fb,tí
+45,𐇼,WAVY BAND,0x101fc,ná
+46,𐇽,COMBINING STROKE,0x101fd,ti
+??,?,UNKNOWN,0x3f,?

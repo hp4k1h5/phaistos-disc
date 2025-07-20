@@ -1,4 +1,4 @@
-No.,Symbol,Name,unicode
+number,symbol,name,unicode,phoneme
 01,𐇐,PEDESTRIAN,0x101d0
 02,𐇑,PLUMED HEAD,0x101d1
 03,𐇒,TATTOOED HEAD,0x101d2
