@@ -66,7 +66,6 @@ class TestDiscFormat:
         "number_to_symbol should work with string or enum"
 
         sm = read_sign_map()
-        pd = PhaistosDisc()
 
         sym = number_to_symbol(sm, "01", "symbol")
         assert sym == "𐇐"

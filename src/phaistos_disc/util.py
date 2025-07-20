@@ -54,7 +54,9 @@ def read_sign_map(
 
 
 def number_to_symbol(
-    sign_map: pl.DataFrame, number: str, output_type: "OutputType" | str
+    sign_map: pl.DataFrame,
+    number: str,
+    output_type: "OutputType" | str,  # noqa: F821
 ) -> str:
     """Convert a zero-padded sign-number to unicode symbol or phonetic
     transcription.
